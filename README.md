@@ -39,5 +39,33 @@ Intercept the print button click
 Communicate with your native host to show the custom dialog
 
 
+NativeMessagingHost.exe (bridge between browser & C#).
+Why is NativeMessagingHost.exe required?
 
+Browsers cannot directly call C# applications due to security restrictions.
+
+The host acts as a middleman, receiving JSON from the browser and invoking your Helper DLL.
+
+✅ How does the browser communicate with it?
+
+Uses stdin/stdout pipes (Chrome/Edge Native Messaging API).
+
+Sends a 4-byte length header followed by JSON.
+
+✅ What if my dialog doesn’t appear?
+
+Manifest file (tells Chrome/Edge where to find the host).
+
+Extension popup (triggers printing).
+
+Option B: Manual Registration
+Save the JSON manifest to:
+
+Chrome:
+%LOCALAPPDATA%\Google\Chrome\NativeMessagingHosts\com.yourcompany.customprinter.json
+
+Edge:
+%LOCALAPPDATA%\Microsoft\Edge\User Data\NativeMessagingHosts\com.yourcompany.customprinter.json
+
+Replace YOUREXTENSIONIDHERE with your actual extension ID (get it from chrome://extensions).
 
