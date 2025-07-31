@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printer Dialog Interface</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .printer-dialog {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 500px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(to right, #2c3e50, #4a6491);
+            color: white;
+            padding: 18px 20px;
+            font-size: 20px;
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+        }
+        
+        .content {
+            padding: 25px;
+            display: grid;
+            gap: 22px;
+        }
+        
+        .section {
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 8px;
+            color: #3498db;
+        }
+        
+        .copies-control {
+            display: flex;
+            align-items: center;
+        }
+        
+        .copies-input {
+            width: 70px;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 15px;
+            margin-right: 15px;
+        }
+        
+        .copies-buttons {
+            display: flex;
+        }
+        
+        .copies-btn {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        
+        .copies-btn:first-child {
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+        }
+        
+        .copies-btn:last-child {
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .copies-btn:hover {
+            background: #eaeaea;
+        }
+        
+        .printer-select {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 15px;
+            background: white;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 16px;
+        }
+        
+        .printer-select:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        .action-options {
+            display: grid;
+            gap: 12px;
+        }
+        
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .option:hover {
+            background: #f9f9f9;
+            border-color: #3498db;
+        }
+        
+        .option.selected {
+            background: #e3f2fd;
+            border-color: #3498db;
+        }
+        
+        .option input {
+            margin-right: 12px;
+        }
+        
+        .pages-control {
+            display: flex;
+            align-items: center;
+        }
+        
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        
+        .checkbox-container input {
+            margin-right: 8px;
+        }
+        
+        .auto-select {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            padding-top: 15px;
+        }
+        
+        .btn {
+            padding: 10px 24px;
+            border-radius: 6px;
+            border: none;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .btn-help {
+            background: #f1f8ff;
+            color: #3498db;
+        }
+        
+        .btn-help:hover {
+            background: #e3f2ff;
+        }
+        
+        .btn-cancel {
+            background: #f8f9fa;
+            color: #555;
+        }
+        
+        .btn-cancel:hover {
+            background: #e9ecef;
+        }
+        
+        .btn-print {
+            background: linear-gradient(to right, #2c3e50, #3498db);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .btn-print:hover {
+            background: linear-gradient(to right, #1a2a6c, #2980b9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .printer-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            background: #3498db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .footer {
+            padding: 15px 25px;
+            background: #f8f9fa;
+            border-top: 1px solid #eaeaea;
+            display: flex;
+            justify-content: space-between;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+        }
+        
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: #2ecc71;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="printer-dialog">
+        <div class="header">
+            Printer
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <div class="section-title">
+                    <div class="printer-icon">P</div>
+                    Printer
+                </div>
+                <select class="printer-select">
+                    <option>Print to PDF</option>
+                    <option>HP LaserJet Pro MFP</option>
+                    <option>Epson EcoTank ET-4760</option>
+                    <option>Canon PIXMA TR8620</option>
+                </select>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">
+                    <i>📑</i> Copies
+                </div>
+                <div class="copies-control">
+                    <input type="number" class="copies-input" value="1" min="1">
+                    <div class="copies-buttons">
+                        <div class="copies-btn" id="decrease-copies">-</div>
+                        <div class="copies-btn" id="increase-copies">+</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">
+                    <i>⚙️</i> Action
+                </div>
+                <div class="action-options">
+                    <label class="option selected">
+                        <input type="radio" name="action" checked> Logo-Templates
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="action"> Print Logo
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="action"> HypoVereinsbank (deutsch)
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="action"> Try Control
+                    </label>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">
+                    <i>📄</i> Pages
+                </div>
+                <div class="pages-control">
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="all-pages" checked>
+                        <label for="all-pages">All Pages</label>
+                    </div>
+                    <div class="auto-select">Automatically Select</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="buttons">
+            <button class="btn btn-help">Help</button>
+            <button class="btn btn-cancel">Cancel</button>
+            <button class="btn btn-print">Print</button>
+        </div>
+        
+        <div class="footer">
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                Ready
+            </div>
+            <div>Printer Dialog v2.1</div>
+        </div>
+    </div>
+    
+    <script>
+        // Functionality for copy buttons
+        document.getElementById('increase-copies').addEventListener('click', function() {
+            const input = document.querySelector('.copies-input');
+            input.value = parseInt(input.value) + 1;
+        });
+        
+        document.getElementById('decrease-copies').addEventListener('click', function() {
+            const input = document.querySelector('.copies-input');
+            if (parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+            }
+        });
+        
+        // Radio button selection styling
+        const options = document.querySelectorAll('.option');
+        options.forEach(option => {
+            option.addEventListener('click', function() {
+                options.forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                this.querySelector('input').checked = true;
+            });
+        });
+        
+        // Print button functionality
+        document.querySelector('.btn-print').addEventListener('click', function() {
+            this.textContent = 'Printing...';
+            this.disabled = true;
+            
+            setTimeout(() => {
+                alert('Document sent to printer successfully!');
+                this.textContent = 'Print';
+                this.disabled = false;
+            }, 1500);
+        });
+        
+        // Cancel button functionality
+        document.querySelector('.btn-cancel').addEventListener('click', function() {
+            document.querySelector('.printer-dialog').style.transform = 'translateY(-20px)';
+            document.querySelector('.printer-dialog').style.opacity = '0';
+            
+            setTimeout(() => {
+                alert('Printing canceled');
+                document.querySelector('.printer-dialog').style.transform = 'translateY(0)';
+                document.querySelector('.printer-dialog').style.opacity = '1';
+            }, 300);
+        });
+    </script>
+</body>
+</html>
