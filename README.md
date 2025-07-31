@@ -69,3 +69,58 @@ Edge:
 
 Replace YOUREXTENSIONIDHERE with your actual extension ID (get it from chrome://extensions).
 
+Decode the base64 PDF content
+
+Apply the print settings
+
+Send the document to the selected printer
+
+Return a success response with job details
+
+ data structure sent to your C# application
+
+ Key Features of this Implementation:
+PDF Preview and Upload Functionality:
+
+Embedded PDF viewer with iframe
+
+Load sample PDF option
+
+Upload your own PDF files
+
+Responsive layout for different screen sizes
+
+Complete Printer Settings:
+
+Printer selection dropdown
+
+Copies control with increment/decrement buttons
+
+Action options with radio button selection
+
+Page settings (All Pages, Auto Select)
+
+Additional options (Color Printing, Double-Sided)
+
+Native Messaging Integration:
+
+"Send to Native Printer" button collects all settings
+
+Simulates PDF content retrieval (base64 encoded)
+
+Formats data for NativeMessagingHost.exe
+
+Handles success/error responses
+
+User Experience Enhancements:
+
+Status messages with success/error states
+
+Loading animation during processing
+
+Print receipt with job details
+
+Help and cancel functionality
+
+Responsive design for all devices
+
