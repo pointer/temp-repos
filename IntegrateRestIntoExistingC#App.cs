@@ -222,14 +222,20 @@ namespace bob
 //         </endpointBehaviors>
 //     </behaviors>
 // </system.serviceModel>
-// Things of note are the service name (bob.RestService) and endpoint contract (bob.IService). Point the service name at the REST implementation class and the contract at the interface.
+// Things of note are the service name (bob.RestService) and endpoint contract (bob.IService). 
+//Point the service name at the REST implementation class and the contract at the interface.
 
-// I then "borrowed" the ThreadedServiceHost class from here, changed the ServiceHost class reference to WebServiceHost, updated the project reference, removed the endpoint and associated code (simplified things), and made a call to start it from the App() (constructor) ala:
+// I then "borrowed" the ThreadedServiceHost class from 
+        //http://www.codeproject.com/Articles/16299/Hosting-WCF-services-in-a-Windows-Forms-Applicatio, 
+//changed the ServiceHost class reference to WebServiceHost, 
+//updated the project reference, removed the endpoint and associated code (simplified things), 
+// and made a call to start it from the App() (constructor) ala:
 
 // C#
 // Fire up REST web services.
 restHost = new ThreadedWebServiceHost<RestService>(Properties.Settings.Default.REST_ENDPOINT);
-REST_ENDPOINT is simply the base URI where my services are located (http://localhost:10870/App). Compile and point your browser at http://localhost:10870/App/GetSoftwareVersion. You should see the result on screen.
+// REST_ENDPOINT is simply the base URI where my services are located (http://localhost:10870/App). 
+// Compile and point your browser at http://localhost:10870/App/GetSoftwareVersion. You should see the result on screen.
 
 // Refs:
 // http://www.codeproject.com/Articles/148762/NET-4-0-RESTful-Web-Service-Introduction
