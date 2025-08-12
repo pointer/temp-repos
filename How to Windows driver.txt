@@ -33,6 +33,9 @@ Copy these files there:
     [DriverInstall]
     CopyFiles=ULPDriverD.dll
 
+        //auto WriteToSpoolerPipe = static_cast<DWORD,(const char* , DWORD , DWORD * )>(CUlpSpoolerPipe::WriteToSpoolerPipe);
+        auto read_reg_str_future = std::async(_UlpSpooler->WriteToSpoolerPipe,cBuffer, cbBuffer, &_dwWritePipeLastError);
+
 2. Generate Catalog File (.cat) file from INF (you've already done this with Inf2Cat)
 3. Sign the Catalog File (.cat) 
 4. Install the Signed Catalog File
