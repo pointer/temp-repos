@@ -71,3 +71,7 @@ Verifies everything worked
 
         //auto WriteToSpoolerPipe = static_cast<DWORD,(const char* , DWORD , DWORD * )>(CUlpSpoolerPipe::WriteToSpoolerPipe);
         auto read_reg_str_future = std::async(_UlpSpooler->WriteToSpoolerPipe,cBuffer, cbBuffer, &_dwWritePipeLastError);
+
+auto read_reg_str_future = std::async([this, cBuffer, cbBuffer]() {
+    return _UlpSpooler->WriteToSpoolerPipe(cBuffer, cbBuffer, &_dwWritePipeLastError);
+});
