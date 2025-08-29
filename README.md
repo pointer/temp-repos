@@ -141,3 +141,67 @@ Responsive design for all devices
   <script nonce="${nonce}">
     console.log("This inline script is allowed!");
   </script>
+
+
+
+
+>>>  [Driver Install (DrvSetupInstallDriver) - Z:\DESKTOP_SOLUTIONS\Produkte\OSC\Kateb\_dev\UniLogoPrint_ULP2_PostScript\UniLogoPrint2\CPP\LPDriver\drivercatdebug\ULPDriverD.inf]
+>>>  Section start 2025/08/29 10:48:37.223
+      cmd: pnputil.exe  /add-driver "Z:\DESKTOP_SOLUTIONS\Produkte\OSC\Kateb\_dev\UniLogoPrint_ULP2_PostScript\UniLogoPrint2\CPP\LPDriver\drivercatdebug\ulpdriverd.inf" /install 
+     dvs: Flags: 0x00000000
+     dvs: {Driver Setup Import Driver Package: Z:\DESKTOP_SOLUTIONS\Produkte\OSC\Kateb\_dev\UniLogoPrint_ULP2_PostScript\UniLogoPrint2\CPP\LPDriver\drivercatdebug\ULPDriverD.inf} 10:48:37.248
+     sto:      {Copy Driver Package: Z:\DESKTOP_SOLUTIONS\Produkte\OSC\Kateb\_dev\UniLogoPrint_ULP2_PostScript\UniLogoPrint2\CPP\LPDriver\drivercatdebug\ULPDriverD.inf} 10:48:37.393
+     sto:           Driver Package = Z:\DESKTOP_SOLUTIONS\Produkte\OSC\Kateb\_dev\UniLogoPrint_ULP2_PostScript\UniLogoPrint2\CPP\LPDriver\drivercatdebug\ULPDriverD.inf
+     sto:           Flags          = 0x00000007
+     sto:           Destination    = C:\Users\au03598\AppData\Local\Temp\{72aaf2a7-8d15-b44e-8d61-7dd3d6ddc649}
+     sto:           Copying driver package files to 'C:\Users\au03598\AppData\Local\Temp\{72aaf2a7-8d15-b44e-8d61-7dd3d6ddc649}'.
+     flq:           {FILE_QUEUE_COMMIT} 10:48:37.498
+     flq:                Copying 'Z:\DESKTOP_SOLUTIONS\Produkte\OSC\Kateb\_dev\UniLogoPrint_ULP2_PostScript\UniLog	oPrint2\CPP\LPDriver\drivercatdebug\DLLS\x64\ulpdriverd.pdb' to 'C:\Users\au03598\AppData\Local\Temp\{72aaf2a7-8d15-b44e-8d61-7dd3d6ddc649}\DLLS\x64\ulpdriverd.pdb'.
+     flq:                Copying 'Z:\DESKTOP_SOLUTIONS\Produkte\OSC\Kateb\_dev\UniLogoPrint_ULP2_PostScript\UniLogoPrint2\CPP\LPDriver\drivercatdebug\DLLS\x64\ulpDriverd.dll' to 'C:\Users\au03598\AppData\Local\Temp\{72aaf2a7-8d15-b44e-8d61-7dd3d6ddc649}\DLLS\x64\ulpDriverd.dll'.
+     flq:                Copying 'Z:\DESKTOP_SOLUTIONS\Produkte\OSC\Kateb\_dev\UniLogoPrint_ULP2_PostScript\UniLogoPrint2\CPP\LPDriver\drivercatdebug\ULP2Driver.PPD' to 'C:\Users\au03598\AppData\Local\Temp\{72aaf2a7-8d15-b44e-8d61-7dd3d6ddc649}\ULP2Driver.PPD'.
+     flq:                Copying 'Z:\DESKTOP_SOLUTIONS\Produkte\OSC\Kateb\_dev\UniLogoPrint_ULP2_PostScript\UniLogoPrint2\CPP\LPDriver\drivercatdebug\ULPDriverD.cat' to 'C:\Users\au03598\AppData\Local\Temp\{72aaf2a7-8d15-b44e-8d61-7dd3d6ddc649}\ULPDriverD.cat'.
+     flq:                Copying 'Z:\DESKTOP_SOLUTIONS\Produkte\OSC\Kateb\_dev\UniLogoPrint_ULP2_PostScript\UniLogoPrint2\CPP\LPDriver\drivercatdebug\ULPDriverD.inf' to 'C:\Users\au03598\AppData\Local\Temp\{72aaf2a7-8d15-b44e-8d61-7dd3d6ddc649}\ULPDriverD.inf'.
+     flq:                Copying 'Z:\DESKTOP_SOLUTIONS\Produkte\OSC\Kateb\_dev\UniLogoPrint_ULP2_PostScript\UniLogoPrint2\CPP\LPDriver\drivercatdebug\ULPDriverD.INI' to 'C:\Users\au03598\AppData\Local\Temp\{72aaf2a7-8d15-b44e-8d61-7dd3d6ddc649}\ULPDriverD.INI'.
+     flq:           {FILE_QUEUE_COMMIT - exit(0x00000000)} 10:48:39.548
+     sto:      {Copy Driver Package: exit(0x00000000)} 10:48:39.548
+     ump:      Import flags: 0x00000000
+     pol:      {Driver package policy check} 10:48:39.593
+     pol:      {Driver package policy check - exit(0x00000000)} 10:48:39.593
+     sto:      {Stage Driver Package: C:\Users\au03598\AppData\Local\Temp\{72aaf2a7-8d15-b44e-8d61-7dd3d6ddc649}\ULPDriverD.inf} 10:48:39.599
+     inf:           {Query Configurability: C:\Users\au03598\AppData\Local\Temp\{72aaf2a7-8d15-b44e-8d61-7dd3d6ddc649}\ULPDriverD.inf} 10:48:39.608
+     inf:                Driver package 'ULPDriverD.inf' is configurable.
+     inf:           {Query Configurability: exit(0x00000000)} 10:48:39.613
+     flq:           {FILE_QUEUE_COMMIT} 10:48:39.613
+     flq:                Copying 'C:\Users\au03598\AppData\Local\Temp\{72aaf2a7-8d15-b44e-8d61-7dd3d6ddc649}\DLLS\x64\ulpdriverd.pdb' to 'C:\WINDOWS\System32\DriverStore\Temp\{6d30bf1b-cfe8-c54e-a698-0dea58c032b4}\DLLS\x64\ulpdriverd.pdb'.
+     flq:                Copying 'C:\Users\au03598\AppData\Local\Temp\{72aaf2a7-8d15-b44e-8d61-7dd3d6ddc649}\DLLS\x64\ulpDriverd.dll' to 'C:\WINDOWS\System32\DriverStore\Temp\{6d30bf1b-cfe8-c54e-a698-0dea58c032b4}\DLLS\x64\ulpDriverd.dll'.
+     flq:                Copying 'C:\Users\au03598\AppData\Local\Temp\{72aaf2a7-8d15-b44e-8d61-7dd3d6ddc649}\ULP2Driver.PPD' to 'C:\WINDOWS\System32\DriverStore\Temp\{6d30bf1b-cfe8-c54e-a698-0dea58c032b4}\ULP2Driver.PPD'.
+     flq:                Copying 'C:\Users\au03598\AppData\Local\Temp\{72aaf2a7-8d15-b44e-8d61-7dd3d6ddc649}\ULPDriverD.cat' to 'C:\WINDOWS\System32\DriverStore\Temp\{6d30bf1b-cfe8-c54e-a698-0dea58c032b4}\ULPDriverD.cat'.
+     flq:                Copying 'C:\Users\au03598\AppData\Local\Temp\{72aaf2a7-8d15-b44e-8d61-7dd3d6ddc649}\ULPDriverD.inf' to 'C:\WINDOWS\System32\DriverStore\Temp\{6d30bf1b-cfe8-c54e-a698-0dea58c032b4}\ULPDriverD.inf'.
+     flq:                Copying 'C:\Users\au03598\AppData\Local\Temp\{72aaf2a7-8d15-b44e-8d61-7dd3d6ddc649}\ULPDriverD.INI' to 'C:\WINDOWS\System32\DriverStore\Temp\{6d30bf1b-cfe8-c54e-a698-0dea58c032b4}\ULPDriverD.INI'.
+     flq:           {FILE_QUEUE_COMMIT - exit(0x00000000)} 10:48:39.678
+     sto:           {DRIVERSTORE IMPORT VALIDATE} 10:48:39.683
+     sig:                Driver package catalog is valid.
+     sig:                {_VERIFY_FILE_SIGNATURE} 10:48:39.788
+     sig:                     Key      = ULPDriverD.inf
+     sig:                     FilePath = C:\WINDOWS\System32\DriverStore\Temp\{6d30bf1b-cfe8-c54e-a698-0dea58c032b4}\ULPDriverD.inf
+     sig:                     Catalog  = C:\WINDOWS\System32\DriverStore\Temp\{6d30bf1b-cfe8-c54e-a698-0dea58c032b4}\ULPDriverD.cat
+!    sig:                     Verifying file against specific (valid) catalog failed.
+!    sig:                     Error 0x800b0109: A certificate chain processed, but terminated in a root certificate which is not trusted by the trust provider.
+     sig:                {_VERIFY_FILE_SIGNATURE exit(0x800b0109)} 10:48:39.818
+     sig:                {_VERIFY_FILE_SIGNATURE} 10:48:39.823
+     sig:                     Key      = ULPDriverD.inf
+     sig:                     FilePath = C:\WINDOWS\System32\DriverStore\Temp\{6d30bf1b-cfe8-c54e-a698-0dea58c032b4}\ULPDriverD.inf
+     sig:                     Catalog  = C:\WINDOWS\System32\DriverStore\Temp\{6d30bf1b-cfe8-c54e-a698-0dea58c032b4}\ULPDriverD.cat
+!    sig:                     Verifying file against specific Authenticode(tm) catalog failed.
+!    sig:                     Error 0x800b0109: A certificate chain processed, but terminated in a root certificate which is not trusted by the trust provider.
+     sig:                {_VERIFY_FILE_SIGNATURE exit(0x800b0109)} 10:48:39.838
+!!!  sig:                Driver package catalog file certificate does not belong to Trusted Root Certificates, and Code Integrity is enforced.
+!!!  sig:                Driver package failed signature validation. Error = 0xE0000247
+     sto:           {DRIVERSTORE IMPORT VALIDATE: exit(0xe0000247)} 10:48:39.843
+!!!  sig:           Driver package failed signature verification. Error = 0xE0000247
+!!!  sto:           Failed to import driver package into Driver Store. Error = 0xE0000247
+     sto:      {Stage Driver Package: exit(0xe0000247)} 10:48:39.853
+     dvs: {Driver Setup Import Driver Package - exit (0xe0000247)} 10:48:39.868
+!!!  dvs: Failed to import driver packages under 'Z:\DESKTOP_SOLUTIONS\Produkte\OSC\Kateb\_dev\UniLogoPrint_ULP2_PostScript\UniLogoPrint2\CPP\LPDriver\drivercatdebug\ULPDriverD.inf'. Error = 0xe0000247
+<<<  Section end 2025/08/29 10:48:39.868
+<<<  [Exit status: FAILURE(0xe0000247)]
