@@ -1,0 +1,52 @@
+#region Main Execution (No Reboot)
+try {
+    # Check admin privileges
+    if (-not (Test-Admin)) {
+        Write-Host "This script must be run as Administrator" -ForegroundColor Red
+        exit 1
+    }
+    
+    Write-Host "Starting driver installation (NO REBOOT REQUIRED)..." -ForegroundColor Green
+    
+    # Execute steps
+    $cert = New-TestCertificate
+    Generate-Catalog-File
+    Sign-Catalog
+    
+    # Set device installation policies
+    $policySet = Set-DeviceInstallPolicy
+    
+    # Try multiple installation methods
+    $installed = $false
+    
+    # Method 1: Try DISM first
+    if (-not $installed) {
+        Write-Host "Trying DISM installation..." -ForegroundColor Cyan
+        $installed = Install-DriverNoReboot
+    }
+    
+    # Method 2: Try pnputil with special handling
+    if (-not $installed) {
+        Write-Host "Trying pnputil installation..." -ForegroundColor Cyan
+        $installed = Install-DriverPnpUtil
+    }
+    
+    if ($installed) {
+        # Add printer instance with enhanced error handling
+        Add-PrinterInstance
+        
+        # Provide alternative installation methods
+        Get-PrintUICommands
+        
+        Write-Host "`n[SUCCESS] Driver processing completed!" -ForegroundColor Green
+        Write-Host "Note: You may need to manually add the printer using the methods above." -ForegroundColor Yellow
+    }
+    else {
+        Write-Host "`n[WARNING] Driver installation failed. Files are prepared at: $WorkDir" -ForegroundColor Yellow
+        Get-PrintUICommands
+    }
+}
+catch {
+    Handle-Error "Main execution failed"
+}
+#endregion
