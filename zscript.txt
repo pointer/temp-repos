@@ -53,42 +53,16 @@
             });
         });
 
-public static UniCache CreateUniCacheWithinTimespan(String applicationName, InitMode initMode, String serverName, Int32 maxTime, Int32 defaultTimeoutServerRequests)
-{
-    UniCache result;
-    
-    // Validate input parameters
-    if (maxTime < 0 || maxTime > 600000) throw new ArgumentOutOfRangeException("Allowed Range for maxTime (in milliseconds): 0 <= maxTime <= 600000!");
-    if (initMode == InitMode.InitializeOnly || initMode == InitMode.Offline) throw new ArgumentOutOfRangeException("initMode must not be InitializeOnly and Offline!");
-    if (defaultTimeoutServerRequests <= 0) throw new ArgumentOutOfRangeException("Allowed values for defaultTimeoutServerRequests: defaultTimeoutServerRequests > 0!");
 
-    // Create an offline cache instance as a fallback option
-    // This ensures we always have a valid cache to return, even if online initialization fails
-    UniCache offlineUniCache = UniCache.CreateUniCacheOffline(applicationName);
-    
-    // Check if we should attempt online initialization:
-    // - For test applications (bypass forced offline mode)
-    // - Or when global config doesn't force offline mode
-    if (Config.GlobalConfig.IsTestApplication(applicationName) || !Config.GlobalConfig.ForceOfflineMode)
-    {
-        // Attempt to create and refresh cache in online mode
-        // This will try to connect to the server and fetch data within the specified maxTime
-        UniCache refreshedUniCache = UniCache.CreateUniCache(applicationName, initMode, maxTime, serverName, defaultTimeoutServerRequests);
-        
-        // Only use the online cache if it successfully completed initialization
-        // If initialization failed or timed out, fall back to offline mode
-        result = refreshedUniCache.Status == CacheStatus.Complete ? refreshedUniCache : offlineUniCache;
-    }
-    else
-    {
-        // Global config forces offline mode for non-test applications
-        // Return the pre-created offline cache instance
-        result = offlineUniCache;
-    }
-    
-    // Return either the successfully initialized online cache or the offline fallback
-    return result;
-}
+Parameter Validation - Explains what each validation check protects against
+
+Offline Fallback Strategy - Notes that offline cache is created upfront as a safety net
+
+Online Initialization Conditions - Clarifies when online mode is attempted vs forced offline
+
+Success Criteria - Explains that only a "Complete" cache status is acceptable for online mode
+
+Graceful Degradation - Emphasizes the fallback behavior when online initialization fails
 
         // Print button functionality
         btnPrint.addEventListener('click', async () => {
@@ -222,3 +196,4 @@ public static UniCache CreateUniCacheWithinTimespan(String applicationName, Init
         };
 
     </script>
+
