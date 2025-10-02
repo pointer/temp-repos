@@ -53,17 +53,6 @@
             });
         });
 
-
-Parameter Validation - Explains what each validation check protects against
-
-Offline Fallback Strategy - Notes that offline cache is created upfront as a safety net
-
-Online Initialization Conditions - Clarifies when online mode is attempted vs forced offline
-
-Success Criteria - Explains that only a "Complete" cache status is acceptable for online mode
-
-Graceful Degradation - Emphasizes the fallback behavior when online initialization fails
-
         // Print button functionality
         btnPrint.addEventListener('click', async () => {
             // Validate PDF is loaded
@@ -196,4 +185,5 @@ Graceful Degradation - Emphasizes the fallback behavior when online initializati
         };
 
     </script>
+
 
