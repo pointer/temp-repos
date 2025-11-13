@@ -1,3 +1,15 @@
+
+  
+  Tool Name,Type/Platform,Key Features & Focus,License/Model
+Cppcheck,Static Analysis (SAST),"Focus on undefined behavior; low false positives; doesn't require compilation",Open Source
+FlawFinder,Static Analysis (SAST),"Scans for security flaws; simple/fast; results sorted by risk level; CWE-compatible",Open Source
+Clang Static Analyzer,Static Analysis (SAST),"Built into Clang/LLVM; deep path-sensitive analysis",Open Source
+SonarQube/SonarLint,Static Analysis (SAST),"Detects bugs, code smells, security vulnerabilities; integrates into IDE/CI/CD",Commercial & Open-Source Versions
+PVS-Studio,Static Analysis (SAST),"Specializes in bugs, typos, copy-paste errors; integrates with CI/CD/SonarQube",Commercial
+Visual Studio Code Analysis,IDE-Integrated,"Integrated into Visual Studio IDE; enforces C++ Core Guidelines; runs on build/command line",Commercial (Part of Visual Studio)
+Klocwork,Static Analysis (SAST),"For large codebases; differential analysis; security focus; many integrations",Commercial
+Coverity,Static Analysis (SAST),"Accurate/comprehensive analysis; free service (Coverity Scan) for open-source projects",Commercial  
+  
   <script>
     // Generate nonce before any scripts run
     const nonce = generateNonce();
